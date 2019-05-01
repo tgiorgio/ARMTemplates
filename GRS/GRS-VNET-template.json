@@ -4,7 +4,10 @@
     "parameters": {
       "customerprefix":{
         "type":"String"
-      },  
+      },
+      "vnetResourceGroup":{
+        "type": "string"
+      },
       "location": {
           "type": "string"
       },
@@ -104,8 +107,6 @@
             "description": "Core Test"
           }
         },
-
-
         "enableDdosProtection": {
             "type": "bool"
         }
@@ -184,5 +185,19 @@
                 "enableDdosProtection": "[parameters('enableDdosProtection')]"
             }
         }
-    ]
+    ],
+    "outputs": {
+      "vnetID": {
+        "value": "[resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+        "type" : "string"
+    },
+      "vnetResourceGroup":{
+        "value": "[parameters('vnetResourceGroup')]",
+        "type": "string"
+      },
+      "vnetAddressPrefix":{
+        "value": "[parameters('VNETaddressPrefix')]",
+        "type": "string"
+      }      
+    }
 }

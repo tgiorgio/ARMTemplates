@@ -7,19 +7,63 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
-            "name": "linkedTemplate",
+            "name": "GRSDeployVNET",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-                    "contentVersion":"1.0.0.0"
+                    "uri":"https://github.com/tgiorgio/ARMTemplates/blob/master/GRS/GRS-VNET-template.json"
+                    
                 },
                 "parametersLink": {
-                    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-                    "contentVersion":"1.0.0.0"
+                    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json"
+                    
+                }
+            }
+          },    
+          {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "GRSDeployFortigate",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri":"https://github.com/tgiorgio/ARMTemplates/blob/master/GRS/GRS-Fortigate-Template.json"
+                    
+                },
+                "parameters": {
+                    "vnetResourceGroup": {
+                        "Value": ""
+                      },
+                      "vnetAddressPrefix": {
+                        "Value": "10.0.0.0/16"
+                      },
+                      "Subnet1Name": {
+                        "Value": "EntrySubnet"
+                      },
+                      "Subnet1Prefix": {
+                        "Value": "10.0.1.0/24"
+                      },
+                      "Subnet2Name": {
+                        "Value": "TransitSubnet"
+                      },
+                      "Subnet2Prefix": {
+                        "Value": "10.0.2.0/24"
+                      },
+                      "Subnet3Name": {
+                        "Value": "ProtectedSubnet"
+                      },
+                      "Subnet3Prefix": {
+                        "Value": "10.0.3.0/24"
+                      }
+                    
                 }
             }
           }
     ],
-    "outputs": {}
+    "outputs": {
+        "vnetID":{
+            "type": "string",
+            "value": "[reference('GRSDeployVNET').outputs.vnetID.value]"
+        }
+    }
 }
