@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "FortiGateNamePrefix": {
+            "value": "thiagotest"
+        }, 
+        "adminUsername": {
+            "value": "thiago"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "CustomerNamePrefix": {
+            "value": "## TO BE DEFINED ##"
+        },
+        "FortiGateImageSKU": {
+            "value": "fortinet_fg-vm_payg"
+        },
+        "FortiGateImageVersion": {
+            "value": "6.0.3"
+        },
+        "instanceType": {
+            "value": "Standard_F2s"
+        },
+        "publicIPAddressName": {
+            "value": "FortiGate-PublicIP-A"
+        },
+        "publicIPAddress2Name": {
+            "value": "FortiGate-PublicIP-B"
+        },
+        "publicIPAddressType": {
+            "value": "Static"
+        },
+        "publicIPNewOrExisting": {
+            "value": "new"
+        },
+        "publicIP2NewOrExisting": {
+            "value": "new"
+        },
+        "publicIPAddressResourceGroup": {
+            "value": "V1-Thiago-Script"
+        },
+        "publicIPAddress2ResourceGroup": {
+            "value": "V1-Thiago-Script"
+        },
+        "location": {
+            "value": "northeurope"
+        },
+        "vnetNewOrExisting": {
+            "value": "new"
+        },
+        "vnetName": {
+            "value": "FortigateProtectedVNet"
+        },
+        "vnetResourceGroup": {
+            "value": "V1-Thiago-Script"
+        },
+        "vnetAddressPrefix": {
+            "value": "10.2.0.0/16"
+        },
+        "Subnet1Name": {
+            "value": "UntrustSubnet"
+        },
+        "Subnet1Prefix": {
+            "value": "10.2.0.0/24"
+        },
+        "Subnet2Name": {
+            "value": "TrustedSubnet"
+        },
+        "Subnet2Prefix": {
+            "value": "10.2.1.0/24"
+        },
+        "Subnet3Name": {
+            "value": "InternalSubnet"
+        },
+        "Subnet3Prefix": {
+            "value": "10.2.2.0/24"
+        }
+    }
+}

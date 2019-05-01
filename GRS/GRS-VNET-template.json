@@ -1,0 +1,188 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "customerprefix":{
+        "type":"String"
+      },  
+      "location": {
+          "type": "string"
+      },
+      "VNETname":{
+        "type": "string"
+      },
+      "VNETaddressPrefix": {
+        "type": "string"
+      },
+      "Subnet1Name":{
+        "type" : "String"
+      },
+      "Subnet1Prefix": {
+        "type": "string",
+        "defaultValue": "10.0.1.0/24",
+        "metadata": {
+            "description":"Firewall External"
+        }
+        },
+        "Subnet2Name":{
+          "type" : "String"
+        },
+        "Subnet2Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.2.0/24",
+          "metadata": {
+              "description":"Firewall Internal"
+          }
+        },
+        "Subnet3Name":{
+          "type" : "String"
+        },
+        "Subnet3Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.3.0/24",
+          "metadata": {
+              "description":"RD Access"
+          }
+        },
+        "Subnet4Name":{
+          "type" : "String"
+        },
+        "Subnet4Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.4.0/24",
+          "metadata": {
+            "description": "RD Hosts"
+          }
+        },
+        "Subnet5Name":{
+          "type" : "String"
+        },
+        "Subnet5Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.5.0/24",
+          "metadata": {
+            "description": "GRS Data"
+          }
+        },
+        "Subnet6Name":{
+          "type" : "String"
+        },
+        "Subnet6Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.6.0/24",
+          "metadata": {
+            "description": "GRS Web"
+          }
+        },
+        "Subnet7Name":{
+          "type" : "String"
+        },
+        "Subnet7Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.7.0/24",
+          "metadata": {
+            "description": "Core Network"
+          }
+        },
+        "Subnet8Name":{
+          "type" : "String"
+        },
+        "Subnet8Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.8.0/24",
+          "metadata": {
+            "description": "Core DMZ"
+          }
+        },
+        "Subnet9Name":{
+          "type" : "String"
+        },
+        "Subnet9Prefix": {
+          "type": "string",
+          "defaultValue": "10.0.9.0/24",
+          "metadata": {
+            "description": "Core Test"
+          }
+        },
+
+
+        "enableDdosProtection": {
+            "type": "bool"
+        }
+    },
+    "variables": {
+
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-08-01",
+            "name": "[parameters('VNETname')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('VNETaddressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('Subnet1Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet1Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet2Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet2Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet3Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet3Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet4Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet4Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet5Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet5Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet6Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet6Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet7Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet7Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet8Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet8Prefix')]"
+                        }
+                      },
+                      {
+                        "name": "[parameters('Subnet9Name')]",
+                        "properties": {
+                          "addressPrefix": "[parameters('Subnet9Prefix')]"
+                        }
+                      }
+                ],
+                "enableDdosProtection": "[parameters('enableDdosProtection')]"
+            }
+        }
+    ]
+}
