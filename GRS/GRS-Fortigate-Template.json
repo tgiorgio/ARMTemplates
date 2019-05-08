@@ -1,29 +1,83 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "type": "string",
-      "metadata": {
-        "description": "location"
-      }
-    },
+      "type": "string"
+      },
     "customerprefix": {
-      "type": "string",
-      "metadata": {
-        "description": "Prefix of the customers name. Use 3 letters to identify."
-      }
+      "type": "string"
+      },
+    "vnetID":{
+      "type": "string"
+    },
+    "VNetName":{
+      "type": "string"
+    },
+    "vnetAddressPrefix":{
+      "type": "string"
+    },
+    "Subnet1Name":{
+      "type": "string"
+    },
+    "Subnet2Name":{
+      "type": "string"
+    },
+    "Subnet3Name":{
+      "type": "string"
+    },
+    "Subnet4Name":{
+      "type": "string"
+    },
+    "Subnet5Name":{
+      "type": "string"
+    },
+    "Subnet6Name":{
+      "type": "string"
+    },
+    "Subnet7Name":{
+      "type": "string"
+    },
+    "Subnet8Name":{
+      "type": "string"
+    },
+    "Subnet9Name":{
+      "type": "string"
+    },
+    "Subnet1Prefix":{
+      "type": "string"
+    },
+    "Subnet2Prefix":{
+      "type": "string"
+    },
+    "Subnet3Prefix":{
+      "type": "string"
+    },
+    "Subnet4Prefix":{
+      "type": "string"
+    },
+    "Subnet5Prefix":{
+      "type": "string"
+    },
+    "Subnet6Prefix":{
+      "type": "string"
+    },
+    "Subnet7Prefix":{
+      "type": "string"
+    },
+    "Subnet8Prefix":{
+      "type": "string"
+    },
+    "Subnet9Prefix":{
+      "type": "string"
     },
     "FortiGateImageSKU": {
       "type": "string",
-      "defaultValue": "fortinet_fg-vm",
+      "defaultValue": "fortinet_fg-vm_payg",
       "allowedValues": [
         "fortinet_fg-vm",
         "fortinet_fg-vm_payg"
-      ],
-      "metadata": {
-        "description": "Identifies whether to to use PAYG (on demand licensing) or BYOL license model (where license is purchased separately)"
-      }
+      ]
     },
     "instanceType": {
       "type": "string",
@@ -54,7 +108,7 @@
     }
   },
   "variables": {
-    "VNETName": "[concat(parameters('customerprefix'),'-VNET')]",
+    
     "publicIPAddressType" : "Static",
 
     "adminUsername": "[concat(parameters('customerprefix'),'fwadmin')]",
@@ -66,9 +120,15 @@
     "compute_AvailabilitySet_FG_Name": "[concat(variables('FortiGateNamePrefix'),'-AvailabilitySet')]",
     "compute_AvailabilitySet_FG_Id": "[resourceId('Microsoft.Compute/availabilitySets', variables('compute_AvailabilitySet_FG_Name'))]",
 
-    "vnetID": "[resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName'))]",
-    "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet1Name'))]",
-    "subnet2Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet2Name'))]",
+    "subnet1Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet1Name'))]",
+    "subnet2Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet2Name'))]",
+    "subnet3Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet3Name'))]",
+    "subnet4Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet4Name'))]",
+    "subnet5Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet5Name'))]",
+    "subnet6Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet6Name'))]",
+    "subnet7Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet7Name'))]",
+    "subnet8Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet8Name'))]",
+    "subnet9Ref": "[concat(parameters('vnetID'),'/subnets/', parameters('Subnet9Name'))]",
 
     "vmName": "[concat(variables('FortiGateNamePrefix'),'-A')]",
     "vm2Name": "[concat(variables('FortiGateNamePrefix'),'-B')]",
@@ -182,7 +242,7 @@
         "name": "Standard"
       },
       "dependsOn": [
-        "[variables('vnetName')]"
+        "[parameters('vnetName')]"
       ],
       "properties": {
         "frontendIPConfigurations": [
@@ -509,7 +569,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[variables('network_LB_Public_Id')]",
-        "[variables('vnetName')]",
+        "[parameters('vnetName')]",
         "[variables('NSGName')]"
       ],
       "properties": {
@@ -554,7 +614,7 @@
       "dependsOn": [
         "[variables('network_LB_Public_Id')]",
         "[variables('network_NIC_fg11_Name')]",
-        "[variables('vnetName')]",
+        "[parameters('vnetName')]",
         "[variables('NSGName')]"
       ],
       "properties": {
@@ -598,7 +658,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))]",
-        "[variables('vnetName')]"
+        "[parameters('vnetName')]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -630,7 +690,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))]",
-        "[variables('vnetName')]",
+        "[parameters('vnetName')]",
         "[variables('network_NIC_fg12_Name')]"
       ],
       "properties": {
