@@ -11,14 +11,8 @@
       "location": {
           "type": "string"
       },
-      "VNETname":{
-        "type": "string"
-      },
       "VNETaddressPrefix": {
         "type": "string"
-      },
-      "Subnet1Name":{
-        "type" : "string"
       },
       "Subnet1Prefix": {
         "type": "string",
@@ -27,18 +21,12 @@
             "description":"Firewall External"
         }
         },
-        "Subnet2Name":{
-          "type" : "string"
-        },
         "Subnet2Prefix": {
           "type": "string",
           "defaultValue": "10.0.2.0/24",
           "metadata": {
               "description":"Firewall Internal"
           }
-        },
-        "Subnet3Name":{
-          "type" : "string"
         },
         "Subnet3Prefix": {
           "type": "string",
@@ -47,18 +35,12 @@
               "description":"RD Access"
           }
         },
-        "Subnet4Name":{
-          "type" : "string"
-        },
         "Subnet4Prefix": {
           "type": "string",
           "defaultValue": "10.0.4.0/24",
           "metadata": {
             "description": "RD Hosts"
           }
-        },
-        "Subnet5Name":{
-          "type" : "string"
         },
         "Subnet5Prefix": {
           "type": "string",
@@ -67,18 +49,12 @@
             "description": "GRS Data"
           }
         },
-        "Subnet6Name":{
-          "type" : "string"
-        },
         "Subnet6Prefix": {
           "type": "string",
           "defaultValue": "10.0.6.0/24",
           "metadata": {
             "description": "GRS Web"
           }
-        },
-        "Subnet7Name":{
-          "type" : "string"
         },
         "Subnet7Prefix": {
           "type": "string",
@@ -87,9 +63,6 @@
             "description": "Core Network"
           }
         },
-        "Subnet8Name":{
-          "type" : "string"
-        },
         "Subnet8Prefix": {
           "type": "string",
           "defaultValue": "10.0.8.0/24",
@@ -97,27 +70,30 @@
             "description": "Core DMZ"
           }
         },
-        "Subnet9Name":{
-          "type" : "string"
-        },
         "Subnet9Prefix": {
           "type": "string",
           "defaultValue": "10.0.9.0/24",
           "metadata": {
             "description": "Core Test"
           }
-        },
-        "enableDdosProtection": {
-            "type": "bool"
         }
     },
     "variables": {
-
+      "VNETname" : "[concat(parameters('customerprefix'),parameters('location'),'-vnet')]",
+      "subnet1Name" : "[concat(parameters('customerprefix'),'-subnet-ExtFG')]",
+      "subnet2Name" : "[concat(parameters('customerprefix'),'-subnet-IntFG')]",
+      "subnet3Name" : "[concat(parameters('customerprefix'),'-subnet-RDAccess')]",
+      "subnet4Name" : "[concat(parameters('customerprefix'),'-subnet-RDHosts')]",
+      "subnet5Name" : "[concat(parameters('customerprefix'),'-subnet-GRSData')]",
+      "subnet6Name" : "[concat(parameters('customerprefix'),'-subnet-GRSWeb')]",
+      "subnet7Name" : "[concat(parameters('customerprefix'),'-subnet-CoreNetwork')]",
+      "subnet8Name" : "[concat(parameters('customerprefix'),'-subnet-CoreDMZ')]",
+      "subnet9Name" : "[concat(parameters('customerprefix'),'-subnet-CoreTest')]"
     },
     "resources": [
         {
             "apiVersion": "2018-11-01",
-            "name": "[parameters('VNETname')]",
+            "name": "[variables('VNETname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",
             "properties": {
@@ -128,61 +104,60 @@
                 },
                 "subnets": [
                     {
-                        "name": "[parameters('Subnet1Name')]",
+                        "name": "[variables('Subnet1Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet1Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet2Name')]",
+                        "name": "[variables('Subnet2Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet2Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet3Name')]",
+                        "name": "[variables('Subnet3Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet3Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet4Name')]",
+                        "name": "[variables('Subnet4Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet4Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet5Name')]",
+                        "name": "[variables('Subnet5Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet5Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet6Name')]",
+                        "name": "[variables('Subnet6Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet6Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet7Name')]",
+                        "name": "[variables('Subnet7Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet7Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet8Name')]",
+                        "name": "[variables('Subnet8Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet8Prefix')]"
                         }
                       },
                       {
-                        "name": "[parameters('Subnet9Name')]",
+                        "name": "[variables('Subnet9Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet9Prefix')]"
                         }
                       }
-                ],
-                "enableDdosProtection": "[parameters('enableDdosProtection')]"
+                ]
             }
         }
     ],
@@ -192,7 +167,7 @@
         "type": "string"
       },
       "vnetID": {
-        "value": "[resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
+        "value": "[resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName'))]",
         "type" : "string"
       },
       "vnetAddressPrefix":{
@@ -200,11 +175,11 @@
         "type": "string"
       },
       "VNETname":{
-        "value": "[parameters('VNETname')]",
+        "value": "[variables('VNETname')]",
         "type": "string"
       },
       "subnet1Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet1Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet1Name'))]",
         "type" : "string"
       },
       "Subnet1Prefix": {
@@ -212,7 +187,7 @@
         "type": "string"
       },
       "subnet2Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet2Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet2Name'))]",
         "type" : "string"
       },
       "Subnet2Prefix": {
@@ -220,7 +195,7 @@
         "type": "string"
       },
       "subnet3Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet3Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet3Name'))]",
         "type" : "string"
       },
       "Subnet3Prefix": {
@@ -228,7 +203,7 @@
         "type": "string"
       },
       "subnet4Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet4Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet4Name'))]",
         "type" : "string"
       },
       "Subnet4Prefix": {
@@ -236,7 +211,7 @@
         "type": "string"
       },
       "subnet5Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet5Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet5Name'))]",
         "type" : "string"
       },
       "Subnet5Prefix": {
@@ -244,7 +219,7 @@
         "type": "string"
       },
       "subnet6Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet6Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet6Name'))]",
         "type" : "string"
       },
       "Subnet6Prefix": {
@@ -252,7 +227,7 @@
         "type": "string"
       },
       "subnet7Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet7Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet7Name'))]",
         "type" : "string"
       },
       "Subnet7Prefix": {
@@ -260,7 +235,7 @@
         "type": "string"
       },
       "subnet8Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet8Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet8Name'))]",
         "type" : "string"
       },
       "Subnet8Prefix": {
@@ -268,7 +243,7 @@
         "type": "string"
       },
       "subnet9Name": {
-        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', parameters('vnetName')),'/subnets/', parameters('Subnet9Name'))]",
+        "value" : "[concat(resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName')),'/subnets/', variables('Subnet9Name'))]",
         "type" : "string"
       },
       "Subnet9Prefix": {

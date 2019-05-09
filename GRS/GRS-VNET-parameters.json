@@ -5,17 +5,14 @@
         "customerprefix":{
             "value":"EoE"
         },
+        "vnetResourceGroup":{
+            "value": "EoEUKSOUTHVNET-RG"
+        },
         "location": {
             "value": "uksouth"
         },
-        "VNETname": {
-            "value":"[concat(parameters('customerprefix'),'-VNET')]"
-        },
         "VNETaddressPrefix": {
             "value": "10.2.0.0/16"
-        },
-        "Subnet1Name": {
-            "value":"[concat(parameters('customerprefix'),'-subnet-ExtFG')]"
         },
         "Subnet1Prefix": {
             "value": "10.2.1.0/24",
@@ -23,18 +20,11 @@
                 "description":"Firewall External"
             }
         },
-        "Subnet2Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-IntFG')]"
-        },
-        
         "Subnet2Prefix": {
             "value": "10.2.2.0/24",
             "metadata": {
                 "description":"Firewall Internal"
             }
-        },
-        "Subnet3Name": {
-            "value":"[concat(parameters('customerprefix'),'-subnet-RDAccess')]"
         },
         "Subnet3Prefix": {
             "value": "10.2.3.0/24",
@@ -42,17 +32,11 @@
                 "description":"RD Access"
             }
         },
-        "Subnet4Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-RDHosts')]"
-        },
         "Subnet4Prefix": {
             "value": "10.2.4.0/24",
             "metadata": {
                 "description":"RD Hosts"
             }
-        },
-        "Subnet5Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-GRSData')]"
         },
         "Subnet5Prefix": {
             "value": "10.2.5.0/24",
@@ -60,17 +44,11 @@
                 "description":"GRS Data"
             }
         },
-        "Subnet6Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-GRSWeb')]"
-        },
         "Subnet6Prefix": {
             "value": "10.2.6.0/24",
             "metadata": {
                 "description":"GRS Web"
             }
-        },
-        "Subnet7Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-CoreNetwork')]"
         },
         "Subnet7Prefix": {
             "value": "10.2.7.0/24",
@@ -78,26 +56,17 @@
                 "description":"Core Network"
             }
         },
-        "Subnet8Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-CoreDMZ')]"
-        },
         "Subnet8Prefix": {
             "value": "10.2.8.0/24",
             "metadata": {
                 "description":"Core DMZ"
             }
         },
-        "Subnet9Name": {
-            "value": "[concat(parameters('customerprefix'),'-subnet-CoreTest')]"
-        },
         "Subnet9Prefix": {
             "value": "10.2.9.0/24",
             "metadata": {
                 "description":"Core Test"
             }
-        },
-        "enableDdosProtection": {
-            "value": true
         }
     }
 }

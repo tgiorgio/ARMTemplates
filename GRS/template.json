@@ -1,44 +1,23 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json##",
     "contentVersion": "1.0.0.0",
     "parameters": {},
-    "variables": {
-      "vnetRG" : "EoEUKSOUTHVNET-RG",
-      "FWRG" : "EoEUKSOUTHFG-RG"
-    },
+    "variables": {    },
     "resources": [
       {
           "type": "Microsoft.Resources/resourceGroups",
           "apiVersion": "2018-05-01",
           "location": "uksouth",
-          "name": "[variables('vnetRG')]",
+          "name": "EoEUKSOUTHVNET1-RG",
           "properties": {}
       },
       {
-        "type": "Microsoft.Resources/deployments",
+        "type": "Microsoft.Resources/resourceGroups",
         "apiVersion": "2018-05-01",
-        "name": "GRSDeployVNET",
-        "resourceGroup": "EoEUKSOUTHVNET-RG",
-        "dependsOn": ["[resourceId('Microsoft.Resources/resourceGroups/', 'EoEUKSOUTHVNET-RG')]"],
-        "properties": {
-            "mode": "Incremental",
-            "templateLink": {
-                "uri":"https://github.com/tgiorgio/ARMTemplates/blob/master/GRS/GRS-VNET-template.json"
-                
-            },
-            "parametersLink": {
-                "uri":"https://github.com/tgiorgio/ARMTemplates/blob/master/GRS/GRS-VNET-parameters.json"
-                
-            }
-          }
-        }, 
-        {
-          "type": "Microsoft.Resources/resourceGroups",
-          "apiVersion": "2018-05-01",
-          "location": "uksouth",
-          "name": "[variables('FWRG')]",
-          "properties": {}
-        }
+        "location": "uksouth",
+        "name": "EoEUKSOUTHFG1-RG",
+        "properties": {}
+      }
     ],
     "outputs": {}
 }
