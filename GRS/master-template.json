@@ -21,7 +21,7 @@
       "name": "GRSDeployVNET",
       "resourceGroup": "[variables('vnetRG')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Resources/resourceGroups/',variables('vnetRG'))]",
+        "[resourceId('Microsoft.Resources/resourceGroups/',variables('vnetRG'))]"
       ],
       "properties": {
         "mode": "Incremental",
