@@ -116,7 +116,7 @@
     },
     "resources": [
         {
-            "apiVersion": "2018-08-01",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('VNETname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",

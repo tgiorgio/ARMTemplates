@@ -8,21 +8,7 @@
       "FortigateRG":"EoEUKSOUTHFG-RG"
     },  
     "resources": [
-      {
-        "type": "Microsoft.Resources/resourceGroups",
-        "apiVersion": "2018-05-01",
-        "location": "[variables('location')]",
-        "name": "EoEUKSOUTHVNET-RG",
-        "properties": {}
-      },
-  
-      {
-        "type": "Microsoft.Resources/resourceGroups",
-        "apiVersion": "2018-05-01",
-        "location": "[variables('location')]",
-        "name": "EoEUKSOUTHFG-RG",
-        "properties": {}
-      }
+      
     ],
     "outputs": {
         "fwUser":{
