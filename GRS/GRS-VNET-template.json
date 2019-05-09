@@ -166,10 +166,6 @@
         "value": "[parameters('customerprefix')]",
         "type": "string"
       },
-      "vnetID": {
-        "value": "[resourceId(parameters('vnetResourceGroup'),'Microsoft.Network/virtualNetworks', variables('vnetName'))]",
-        "type" : "string"
-      },
       "vnetAddressPrefix":{
         "value": "[parameters('VNETaddressPrefix')]",
         "type": "string"
