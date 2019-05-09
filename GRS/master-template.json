@@ -21,25 +21,18 @@
       "name": "GRSDeployVNET",
       "properties": {
       "mode": "Incremental",
+      "resourceGroup": "[variables('vnetRG')]",
       "templateLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+          "uri":"https://raw.githubusercontent.com/tgiorgio/ARMTemplates/master/GRS/GRS-VNET-template.json",
           "contentVersion":"1.0.0.0"
       },
       "parametersLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+          "uri":"https://raw.githubusercontent.com/tgiorgio/ARMTemplates/master/GRS/GRS-VNET-parameters.json",
           "contentVersion":"1.0.0.0"
       }
       }
     }
     ],
     "outputs": {
-        "fwUser":{
-            "type": "string",
-            "value": "[reference('GRSDeployFortigate').outputs.fwadminuser.value]"
-        },
-        "fwpassword":{
-          "type": "string",
-          "value": "[reference('GRSDeployFortigate').outputs.fwadminpassword.value]"
-      }
     }
 }
