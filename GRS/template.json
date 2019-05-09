@@ -2,13 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
-    "variables": {},
+    "variables": {
+      "vnetRG" : "EoEUKSOUTHVNET-RG",
+      "FWRG" : "EoEUKSOUTHFG-RG"
+    },
     "resources": [
       {
           "type": "Microsoft.Resources/resourceGroups",
           "apiVersion": "2018-05-01",
           "location": "uksouth",
-          "name": "EoEUKSOUTHVNET-RG",
+          "name": "[variables('vnetRG')]",
           "properties": {}
       },
       {
@@ -33,7 +36,7 @@
           "type": "Microsoft.Resources/resourceGroups",
           "apiVersion": "2018-05-01",
           "location": "uksouth",
-          "name": "EoEUKSOUTHFG-RG",
+          "name": "[variables('FWRG')]",
           "properties": {}
         }
     ],
