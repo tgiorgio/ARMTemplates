@@ -243,7 +243,7 @@
         "name": "Standard"
       },
       "dependsOn": [
-        "[parameters('vnetName')]"
+        
       ],
       "properties": {
         "frontendIPConfigurations": [
@@ -570,7 +570,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[variables('network_LB_Public_Id')]",
-        "[parameters('vnetName')]",
+        
         "[variables('NSGName')]"
       ],
       "properties": {
@@ -615,7 +615,7 @@
       "dependsOn": [
         "[variables('network_LB_Public_Id')]",
         "[variables('network_NIC_fg11_Name')]",
-        "[parameters('vnetName')]",
+        
         "[variables('NSGName')]"
       ],
       "properties": {
@@ -658,8 +658,8 @@
       "name": "[variables('network_NIC_fg12_Name')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))]",
-        "[parameters('vnetName')]"
+        "[concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))]"
+        
       ],
       "properties": {
         "ipConfigurations": [
@@ -691,7 +691,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))]",
-        "[parameters('vnetName')]",
+        
         "[variables('network_NIC_fg12_Name')]"
       ],
       "properties": {

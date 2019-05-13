@@ -66,70 +66,70 @@
                   "value" : "Standard_F1"
               },
               "customerprefix":{
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.customerprefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.customerprefix.value]"
               },
               "VNetName":{
-                "value":"[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.VNetName.value]"
+                "value":"[reference('GRSDeployVNET').outputs.VNetName.value]"
               },
               "vnetResourceGroup" :{
                 "value": "[variables('vnetRG')]"
               },
               "vnetAddressPrefix":{
-                "value":"[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.vnetAddressPrefix.value]"
+                "value":"[reference('GRSDeployVNET').outputs.vnetAddressPrefix.value]"
               },
               "Subnet1Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet1Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet1Prefix.value]"
               },
               "Subnet1Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet1Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet1Name.value]"
               },
               "Subnet2Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet2Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet2Prefix.value]"
               },
               "Subnet2Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet2Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet2Name.value]"
               },
               "Subnet3Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet3Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet3Prefix.value]"
               },
               "Subnet3Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet3Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet3Name.value]"
               },
               "Subnet4Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet4Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet4Prefix.value]"
               },
               "Subnet4Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet4Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet4Name.value]"
               },
               "Subnet5Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet5Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet5Prefix.value]"
               },
               "Subnet5Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet5Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet5Name.value]"
               },
               "Subnet6Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet6Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet6Prefix.value]"
               },
               "Subnet6Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet6Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet6Name.value]"
               },
               "Subnet7Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet7Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet7Prefix.value]"
               },
               "Subnet7Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet7Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet7Name.value]"
               },
               "Subnet8Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet8Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet8Prefix.value]"
               },
               "Subnet8Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet8Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet8Name.value]"
               },
               "Subnet9Prefix": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet9Prefix.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet9Prefix.value]"
               },
               "Subnet9Name": {
-                "value": "[reference(resourceId(variables('vnetRG'),'Microsoft.resources/deployments','GRSDeployVNET')).outputs.Subnet9Name.value]"
+                "value": "[reference('GRSDeployVNET').outputs.Subnet9Name.value]"
               }
           }
       }
