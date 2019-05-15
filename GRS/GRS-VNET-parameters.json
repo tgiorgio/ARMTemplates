@@ -5,9 +5,6 @@
         "customerprefix":{
             "value":"EoE"
         },
-        "vnetResourceGroup":{
-            "value": "EoEUKSOUTHVNET-RG"
-        },
         "location": {
             "value": "uksouth"
         },

@@ -5,9 +5,6 @@
       "customerprefix":{
         "type":"string"
       },
-      "vnetResourceGroup":{
-        "type": "string"
-      },
       "location": {
           "type": "string"
       },
@@ -79,16 +76,16 @@
         }
     },
     "variables": {
-      "VNETname" : "[concat(parameters('customerprefix'),parameters('location'),'-vnet')]",
-      "subnet1Name" : "[concat(parameters('customerprefix'),'-subnet-ExtFG')]",
-      "subnet2Name" : "[concat(parameters('customerprefix'),'-subnet-IntFG')]",
-      "subnet3Name" : "[concat(parameters('customerprefix'),'-subnet-RDAccess')]",
-      "subnet4Name" : "[concat(parameters('customerprefix'),'-subnet-RDHosts')]",
-      "subnet5Name" : "[concat(parameters('customerprefix'),'-subnet-GRSData')]",
-      "subnet6Name" : "[concat(parameters('customerprefix'),'-subnet-GRSWeb')]",
-      "subnet7Name" : "[concat(parameters('customerprefix'),'-subnet-CoreNetwork')]",
-      "subnet8Name" : "[concat(parameters('customerprefix'),'-subnet-CoreDMZ')]",
-      "subnet9Name" : "[concat(parameters('customerprefix'),'-subnet-CoreTest')]"
+      "VNETname" : "[concat(parameters('customerprefix'),take(parameters('location'),3),'-vnet')]",
+      "subnet1Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-fgext')]",
+      "subnet2Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-fgint')]",
+      "subnet3Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-rda')]",
+      "subnet4Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-RDHosts')]",
+      "subnet5Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-GRSData')]",
+      "subnet6Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-GRSWeb')]",
+      "subnet7Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-CoreNetwork')]",
+      "subnet8Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-CoreDMZ')]",
+      "subnet9Name" : "[concat(parameters('customerprefix'),'-',take(parameters('location'),3),'-sub-CoreTest')]"
     },
     "resources": [
         {
