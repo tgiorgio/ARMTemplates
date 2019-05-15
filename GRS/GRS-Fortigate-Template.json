@@ -86,20 +86,6 @@
         "description": "Virtual Machine size selection"
       }
     },
-    "publicIPAddressResourceGroup": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Resource group to which the Public IP belongs."
-      }
-    },
-    "publicIPAddress2ResourceGroup": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Resource group to which the Public IP belongs."
-      }
-    },
     "FortinetTags": {
     "type": "object",
     "defaultValue": {
@@ -156,8 +142,8 @@
 
     "publicIPAddressName": "[concat(variables('FortiGateNamePrefix'),'-pip1')]",
     "publicIPAddress2Name": "[concat(variables('FortiGateNamePrefix'),'-pip2')]",
-    "publicIPID": "[resourceID(parameters('publicIPAddressResourceGroup'),'Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-    "publicIP2ID": "[resourceID(parameters('publicIPAddress2ResourceGroup'),'Microsoft.Network/publicIPAddresses',variables('publicIPAddress2Name'))]",
+    "publicIPID": "[resourceID(resourceGroup().name,'Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+    "publicIP2ID": "[resourceID(resourceGroup().name,'Microsoft.Network/publicIPAddresses',variables('publicIPAddress2Name'))]",
 
     "NSGName": "[concat(variables('FortiGateNamePrefix'),'-',uniqueString(resourceGroup().id),'-NSG')]",
 
