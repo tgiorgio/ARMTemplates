@@ -67,7 +67,7 @@
               },
               "adminPassword":{
                 "value" : "RQ=Ttbf2k%2443"
-              }
+              },
               "customerprefix":{
                 "value": "[reference('GRSDeployVNET').outputs.customerprefix.value]"
               },
