@@ -84,15 +84,6 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
-                    {
                         "name": "Inside-VNET",
                         "properties": {
                             "addressPrefix": "[parameters('vnetAddressPrefix')]",
@@ -110,6 +101,20 @@
             }
         },
         {
+            "condition": "[not(empty(parameters('fw-internal-ip')))]",
+            "type": "Microsoft.Network/routeTables/routes",
+            "apiVersion": "2018-12-01",
+            "name": "Default",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/routeTables', variables('RT-rda-name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "0.0.0.0/0",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "[parameters('fw-internal-ip')]"
+            }
+        },
+        {
             "type": "Microsoft.Network/routeTables",
             "apiVersion": "2018-12-01",
             "name": "[variables('RT-rdh-name')]",
@@ -120,15 +125,6 @@
             "properties": {
                 "disableBgpRoutePropagation": true,
                 "routes": [
-                    {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
                     {
                         "name": "Inside-VNET",
                         "properties": {
@@ -158,15 +154,6 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
-                    {
                         "name": "Inside-VNET",
                         "properties": {
                             "addressPrefix": "[parameters('vnetAddressPrefix')]",
@@ -194,15 +181,6 @@
             "properties": {
                 "disableBgpRoutePropagation": true,
                 "routes": [
-                    {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
                     {
                         "name": "Inside-VNET",
                         "properties": {
@@ -232,15 +210,6 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
-                    {
                         "name": "Inside-VNET",
                         "properties": {
                             "addressPrefix": "[parameters('vnetAddressPrefix')]",
@@ -268,15 +237,6 @@
             "properties": {
                 "disableBgpRoutePropagation": true,
                 "routes": [
-                    {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
                     {
                         "name": "Inside-VNET",
                         "properties": {
@@ -306,15 +266,6 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
-                    {
                         "name": "Inside-VNET",
                         "properties": {
                             "addressPrefix": "[parameters('vnetAddressPrefix')]",
@@ -342,15 +293,6 @@
             "properties": {
                 "disableBgpRoutePropagation": true,
                 "routes": [
-                    {
-                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
-                        "name": "toDefault",
-                        "properties": {
-                            "addressPrefix": "0.0.0.0/0",
-                            "nextHopType": "VirtualAppliance",
-                            "nextHopIpAddress": "[parameters('fw-internal-ip')]"
-                        }
-                    },
                     {
                         "name": "Inside-VNET",
                         "properties": {
