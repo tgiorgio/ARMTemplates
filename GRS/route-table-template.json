@@ -104,7 +104,7 @@
             "condition": "[not(empty(parameters('fw-internal-ip')))]",
             "type": "Microsoft.Network/routeTables/routes",
             "apiVersion": "2018-12-01",
-            "name": "Default",
+            "name": "variables('RT-rda-name')/Default",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/routeTables', variables('RT-rda-name'))]"
             ],
