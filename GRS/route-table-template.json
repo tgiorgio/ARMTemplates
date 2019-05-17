@@ -84,7 +84,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -121,7 +121,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -158,7 +158,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -195,7 +195,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -232,7 +232,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -269,7 +269,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -306,7 +306,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
@@ -343,7 +343,7 @@
                 "disableBgpRoutePropagation": true,
                 "routes": [
                     {
-                        
+                        "condition": "[not(empty(parameters('fw-internal-ip')))]",
                         "name": "toDefault",
                         "properties": {
                             "addressPrefix": "0.0.0.0/0",
