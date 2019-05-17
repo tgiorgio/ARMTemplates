@@ -109,71 +109,56 @@
                 "location":{
                   "value": "[parameters('location')]"
                 },
-                "fw-internal-ip" :{
-                  "value":"[reference('GRSDeployFortigate').outputs.fwinternalip.value]"
-                },
                 "vnetAddressPrefix":{
-                  "value":"[reference('GRSDeployVNET').outputs.vnetAddressPrefix.value]"
-                },
-                "Subnet1Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet1Prefix.value]"
-                },
-                "Subnet1Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet1Name.value]"
-                },
-                "Subnet2Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet2Prefix.value]"
-                },
-                "Subnet2Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet2Name.value]"
+                  "value":"[parameters('vnetAddressPrefix')]"
                 },
                 "Subnet3Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet3Prefix.value]"
+                  "value": "[parameters('Subnet3Prefix')]"
                 },
                 "Subnet3Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet3Name.value]"
+                  "value": "[variables('Subnet3Name')]"
                 },
                 "Subnet4Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet4Prefix.value]"
+                  "value": "[parameters('Subnet4Prefix')]"
                 },
                 "Subnet4Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet4Name.value]"
+                  "value": "[variables('Subnet4Name')]"
                 },
                 "Subnet5Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet5Prefix.value]"
+                  "value": "[parameters('Subnet5Prefix')]"
                 },
                 "Subnet5Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet5Name.value]"
+                  "value": "[variables('Subnet5Name')]"
                 },
                 "Subnet6Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet6Prefix.value]"
+                  "value": "[parameters('Subnet6Prefix')]"
                 },
                 "Subnet6Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet6Name.value]"
+                  "value": "[variables('Subnet6Name')]"
                 },
                 "Subnet7Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet7Prefix.value]"
+                  "value": "[parameters('Subnet7Prefix')]"
                 },
                 "Subnet7Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet7Name.value]"
+                  "value": "[variables('Subnet7Name')]"
                 },
                 "Subnet8Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet8Prefix.value]"
+                  "value": "[parameters('Subnet8Prefix')]"
                 },
                 "Subnet8Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet8Name.value]"
+                  "value": "[variables('Subnet8Name')]"
                 },
                 "Subnet9Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet9Prefix.value]"
+                  "value": "[parameters('Subnet9Prefix')]"
                 },
                 "Subnet9Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet9Name.value]"
+                  "value": "[variables('Subnet9Name')]"
                 },
                 "Subnet10Name": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet10Name.value]"
+                  "value": "[variables('Subnet10Name')]"
                 },
                 "Subnet10Prefix": {
-                  "value": "[reference('GRSDeployVNET').outputs.Subnet10Prefix.value]"
+                  "value": "[parameters('Subnet10Prefix')]"
                 }
             }
         }
