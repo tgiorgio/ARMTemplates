@@ -47,6 +47,9 @@
     "Subnet9Name":{
       "type": "string"
     },
+    "Subnet10Name":{
+      "type": "string"
+    },
     "Subnet1Prefix":{
       "type": "string"
     },
@@ -72,6 +75,9 @@
       "type": "string"
     },
     "Subnet9Prefix":{
+      "type": "string"
+    },
+    "Subnet10Prefix":{
       "type": "string"
     },
     "FortiGateImageSKU": {
@@ -119,11 +125,12 @@
     "subnet7Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet7Name'))]",
     "subnet8Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet8Name'))]",
     "subnet9Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet9Name'))]",
+    "subnet10Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet10Name'))]",
 
     "vmName": "[concat(variables('FortiGateNamePrefix'),'-A')]",
     "vm2Name": "[concat(variables('FortiGateNamePrefix'),'-B')]",
 
-    "routeTable2Name": "[concat(parameters('Subnet2Name'),'-',variables('FortiGateNamePrefix'),'RouteTable')]",
+    "routeTable2Name": "[concat(parameters('Subnet2Name'),'-',variables('FortiGateNamePrefix'),'-RT')]",
 
     "internalLBName": "[concat(variables('FortiGateNamePrefix'),'-InternalLoadBalancer')]",
     "internalLBFE2Name": "[concat(variables('FortiGateNamePrefix'),'-ILB-',parameters('Subnet2Name'),'-FrontEnd')]",
@@ -939,6 +946,10 @@
     },
     "fwadminpassword":{
       "value": "[parameters('adminPassword')]",
+      "type": "string"
+    },
+    "fwinternalip":{
+      "value": "[reference(concat('Microsoft.Network/loadBalancers/', variables('internalLBName'))).frontendIPConfigurations[0].properties.privateIPAddress]",
       "type": "string"
     }
   }

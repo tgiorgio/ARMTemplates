@@ -133,11 +133,19 @@
               },
               "Subnet9Name": {
                 "value": "[reference('GRSDeployVNET').outputs.Subnet9Name.value]"
+              },
+              "Subnet10Name": {
+                "value": "[reference('GRSDeployVNET').outputs.Subnet10Name.value]"
+              },
+              "Subnet10Prefix": {
+                "value": "[reference('GRSDeployVNET').outputs.Subnet10Prefix.value]"
               }
           }
       }
     }
+   
     ],
+
     "outputs": {
     }
 }

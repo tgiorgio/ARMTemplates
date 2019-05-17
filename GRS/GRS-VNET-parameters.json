@@ -38,31 +38,37 @@
         "Subnet5Prefix": {
             "value": "10.2.5.0/24",
             "metadata": {
-                "description":"GRS Data"
+                "description":"Data"
             }
         },
         "Subnet6Prefix": {
             "value": "10.2.6.0/24",
             "metadata": {
-                "description":"GRS Web"
+                "description":"App"
             }
         },
         "Subnet7Prefix": {
             "value": "10.2.7.0/24",
             "metadata": {
-                "description":"Core Network"
+                "description":"Core"
             }
         },
         "Subnet8Prefix": {
             "value": "10.2.8.0/24",
             "metadata": {
-                "description":"Core DMZ"
+                "description":"Web"
             }
         },
         "Subnet9Prefix": {
             "value": "10.2.9.0/24",
             "metadata": {
-                "description":"Core Test"
+                "description":"Test"
+            }
+        },
+        "Subnet10Prefix": {
+            "value": "10.2.10.0/24",
+            "metadata": {
+                "description":"Management"
             }
         }
     }
