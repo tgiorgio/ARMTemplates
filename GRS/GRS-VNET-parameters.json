@@ -73,6 +73,13 @@
             "metadata": {
                 "description":"Management"
             }
+        },
+        "Subnet-waf-prefix": {
+            "value": "10.2.12.0/24",
+            "metadata": {
+                "description":"Management"
+            }
         }
+        
     }
 }
