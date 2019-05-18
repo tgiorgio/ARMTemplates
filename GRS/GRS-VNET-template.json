@@ -11,6 +11,9 @@
       "VNETaddressPrefix": {
         "type": "string"
       },
+      "onpremNetPrefix": {
+        "type": "string"
+      },
       "Subnet1Prefix": {
         "type": "string",
         "defaultValue": "10.0.1.0/24",
@@ -172,11 +175,88 @@
               }
           }
         },
+        {
+          "type": "Microsoft.Resources/deployments",
+          "apiVersion": "2018-05-01",
+          "name": "VNET-NSGs",
+          "properties": {
+              "mode": "Incremental",
+              "templateLink": {
+                  "uri":"https://raw.githubusercontent.com/tgiorgio/ARMTemplates/master/GRS/nsg-template.json"
+              },
+              "parameters": {
+                  "location":{
+                    "value": "[parameters('location')]"
+                  },
+                  "onpremNetPrefix":{
+                    "value": "[parameters('onpremNetPrefix')]"
+                  },
+                  "vnetAddressPrefix":{
+                    "value":"[parameters('vnetAddressPrefix')]"
+                  },
+                  "Subnet3Prefix": {
+                    "value": "[parameters('Subnet3Prefix')]"
+                  },
+                  "Subnet3Name": {
+                    "value": "[variables('Subnet3Name')]"
+                  },
+                  "Subnet4Prefix": {
+                    "value": "[parameters('Subnet4Prefix')]"
+                  },
+                  "Subnet4Name": {
+                    "value": "[variables('Subnet4Name')]"
+                  },
+                  "Subnet5Prefix": {
+                    "value": "[parameters('Subnet5Prefix')]"
+                  },
+                  "Subnet5Name": {
+                    "value": "[variables('Subnet5Name')]"
+                  },
+                  "Subnet6Prefix": {
+                    "value": "[parameters('Subnet6Prefix')]"
+                  },
+                  "Subnet6Name": {
+                    "value": "[variables('Subnet6Name')]"
+                  },
+                  "Subnet7Prefix": {
+                    "value": "[parameters('Subnet7Prefix')]"
+                  },
+                  "Subnet7Name": {
+                    "value": "[variables('Subnet7Name')]"
+                  },
+                  "Subnet8Prefix": {
+                    "value": "[parameters('Subnet8Prefix')]"
+                  },
+                  "Subnet8Name": {
+                    "value": "[variables('Subnet8Name')]"
+                  },
+                  "Subnet9Prefix": {
+                    "value": "[parameters('Subnet9Prefix')]"
+                  },
+                  "Subnet9Name": {
+                    "value": "[variables('Subnet9Name')]"
+                  },
+                  "Subnet10Name": {
+                    "value": "[variables('Subnet10Name')]"
+                  },
+                  "Subnet10Prefix": {
+                    "value": "[parameters('Subnet10Prefix')]"
+                  },
+                  "subnet-waf-prefix":{
+                    "value":"[parameters('Subnet-waf-prefix')]"
+                  },
+                  "subnet-waf-name":{
+                    "value":"[variables('subnet-waf')]"
+                  }
+              }
+          }
+        },
         { 
             "apiVersion": "2018-11-01",
             "name": "[variables('VNETname')]",
             "type": "Microsoft.Network/virtualNetworks",
             "location": "[parameters('location')]",
+            "dependsOn": ["VNET-RouteTables", "VNET-NSGs"],
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -199,83 +279,110 @@
                       {
                         "name": "[variables('Subnet3Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet3Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet3Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet3Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet3Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet3Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet4Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet4Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet4Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet4Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet4Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet4Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet5Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet5Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet5Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet5Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet5Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet5Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet6Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet6Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet6Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet6Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet6Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet6Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet7Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet7Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet7Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet7Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet7Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet7Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet8Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet8Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet8Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet8Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet8Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet8Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet9Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet9Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet9Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet9Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet9Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet9Name'),'-RT'))]"
+                          }
                         }
                       },
                       {
                         "name": "[variables('Subnet10Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet10Prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet10Name'),'-RT'))]"
+                          "addressPrefix": "[parameters('Subnet10Prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet10Name'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet10Name'),'-RT'))]"
+                          }
                         }
                       },
                       
                       {
                         "name": "[variables('subnet-waf')]",
                         "properties": {
-                          "addressPrefix": "[parameters('subnet-waf-prefix')]"
-                        },
-                        "routeTable": {
-                          "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet-waf'),'-RT'))]"
+                          "addressPrefix": "[parameters('subnet-waf-prefix')]",
+                          "networkSecurityGroup": {
+                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet-waf'),'-NSG'))]"
+                          },
+                          "routeTable": {
+                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet-waf'),'-RT'))]"
+                          }
                         }
                       }
                 ]
