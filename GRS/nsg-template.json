@@ -854,7 +854,7 @@
                             "destinationPortRange": "53",
                             "sourceAddressPrefix": "[parameters('Subnet6Prefix')]",
                             "access": "Allow",
-                            "priority": 1000,
+                            "priority": 1001,
                             "direction": "Outbound",
                             "sourcePortRanges": [],
                             "destinationPortRanges": [],
