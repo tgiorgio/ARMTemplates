@@ -1240,7 +1240,7 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "Allow-All-DCrep-OnPrem",
+                        "name": "Allow-All-in-DCrep-OnPrem",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -1266,23 +1266,6 @@
                             "destinationAddressPrefix": "[parameters('onpremNetPrefix')]",
                             "access": "Allow",
                             "priority": 1001,
-                            "direction": "Inbound",
-                            "sourcePortRanges": [],
-                            "destinationPortRanges": [],
-                            "sourceAddressPrefixes": [],
-                            "destinationAddressPrefixes": []
-                        }
-                    },
-                    {
-                        "name": "Allow-HTTPS-Licensing",
-                        "properties": {
-                            "protocol": "*",
-                            "sourcePortRange": "*",
-                            "destinationPortRange": "443",
-                            "sourceAddressPrefix": "[parameters('Subnet10Prefix')]",
-                            "destinationAddressPrefix": "[parameters('Subnet7Prefix')]",
-                            "access": "Allow",
-                            "priority": 1002,
                             "direction": "Inbound",
                             "sourcePortRanges": [],
                             "destinationPortRanges": [],
@@ -1345,7 +1328,7 @@
                         }
                     },
                     {
-                        "name": "Allow-All-DCrep-OnPrem",
+                        "name": "Allow-All-out-DCrep-OnPrem",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -1687,7 +1670,7 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "Allow-RDP",
+                        "name": "Allow-RDP-In",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
@@ -1721,7 +1704,7 @@
                         }
                     },
                     {
-                        "name": "Allow-RDP",
+                        "name": "Allow-RDP-Out",
                         "properties": {
                             "protocol": "*",
                             "sourcePortRange": "*",
