@@ -32,7 +32,7 @@
         "Subnet10Name":{
             "type": "string"
         },
-        "subnet-waf":{
+        "subnet-waf-name":{
             "type": "string"
         },
         "Subnet3Prefix":{
@@ -68,7 +68,7 @@
         "nsg-name-sub-data" : "[concat(parameters('subnet5name'),'-NSG')]",
         "nsg-name-sub-core" : "[concat(parameters('subnet7name'),'-NSG')]",
         "nsg-name-sub-mgmt" : "[concat(parameters('subnet10name'),'-NSG')]",
-        "nsg-name-sub-waf" : "[concat(parameters('subnet-waf'),'-NSG')]"
+        "nsg-name-sub-waf" : "[concat(parameters('subnet-waf-name'),'-NSG')]"
     },
     "resources": [
         {

@@ -230,12 +230,6 @@
                   "Subnet8Name": {
                     "value": "[variables('Subnet8Name')]"
                   },
-                  "Subnet9Prefix": {
-                    "value": "[parameters('Subnet9Prefix')]"
-                  },
-                  "Subnet9Name": {
-                    "value": "[variables('Subnet9Name')]"
-                  },
                   "Subnet10Name": {
                     "value": "[variables('Subnet10Name')]"
                   },
