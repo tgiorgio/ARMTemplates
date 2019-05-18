@@ -345,7 +345,7 @@
                       {
                         "name": "[variables('Subnet9Name')]",
                         "properties": {
-                          "addressPrefix": "[parameters('Subnet9Prefix')]",
+                          "addressPrefix": "[parameters('Subnet9Prefix')]"
                         }
                       },
                       {
