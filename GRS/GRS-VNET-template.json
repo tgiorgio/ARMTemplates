@@ -346,12 +346,6 @@
                         "name": "[variables('Subnet9Name')]",
                         "properties": {
                           "addressPrefix": "[parameters('Subnet9Prefix')]",
-                          "networkSecurityGroup": {
-                            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet9Name'),'-NSG'))]"
-                          },
-                          "routeTable": {
-                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet9Name'),'-RT'))]"
-                          }
                         }
                       },
                       {
