@@ -367,7 +367,7 @@
                           "addressPrefix": "[parameters('subnet-waf-prefix')]",
                           "networkSecurityGroup": {
                             "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet-waf'),'-NSG'))]"
-                          },
+                          }
                         }
                       }
                 ]
