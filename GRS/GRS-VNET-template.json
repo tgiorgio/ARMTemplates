@@ -368,9 +368,6 @@
                           "networkSecurityGroup": {
                             "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(variables('subnet-waf'),'-NSG'))]"
                           },
-                          "routeTable": {
-                            "id": "[resourceId('Microsoft.Network/routeTables', concat(variables('subnet-waf'),'-RT'))]"
-                          }
                         }
                       }
                 ]
